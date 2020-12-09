@@ -11,8 +11,10 @@ public class RadialMenu : MonoBehaviour
 
 	bool isActive = true;
 
-    // Start is called before the first frame update
-    void Start()
+	public List<GameObject> options = new List<GameObject>();
+
+	// Start is called before the first frame update
+	void Start()
     {
         
     }
@@ -45,13 +47,31 @@ public class RadialMenu : MonoBehaviour
 				{
 					if(angle > i * 60 && angle < (i +1) * 60)
 					{
-						selectedOption = i + 1;
+						selectedOption = i;
 						selector.transform.rotation = Quaternion.Euler(0, 0, i * -60);
 					}
 				}
 
 			}
 
+			if (Input.GetKeyDown(KeyCode.Mouse0))
+			{
+				Debug.Log(selectedOption);
+				isActive = !isActive;
+				Debug.Log(options.Count);
+				for (int i = 0; i < options.Count; i++)
+				{
+					if(i == selectedOption)
+					{
+						options[i].SetActive(true);
+					}
+					else
+					{
+						options[i].SetActive(false);
+					}
+				}
+				theMenu.SetActive(isActive);
+			}
 		}
     }
 }
