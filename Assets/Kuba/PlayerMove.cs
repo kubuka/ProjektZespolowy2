@@ -12,10 +12,13 @@ public class PlayerMove : MonoBehaviour
 
 	Vector2 jump;
 	[SerializeField] float jumpForce = 1;
+
+	RadialMenu rm;
 	
     // Start is called before the first frame update
     void Start()
     {
+		rm = FindObjectOfType<RadialMenu>();
 		rb = GetComponent<Rigidbody2D>();
 		jump = new Vector2(0, 2f);
     }
@@ -26,10 +29,14 @@ public class PlayerMove : MonoBehaviour
 		horizontal = Input.GetAxis("Horizontal");
 		vertical = Input.GetAxis("Vertical");
 
-		if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
-		{
-			transform.Translate(new Vector2(horizontal * speed * Time.fixedDeltaTime, 0));
+		if(rm.sleeping == false)
+        {
+			if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
+			{
+				transform.Translate(new Vector2(horizontal * speed * Time.fixedDeltaTime, 0));
+			}
 		}
+		
 
 	}
 
