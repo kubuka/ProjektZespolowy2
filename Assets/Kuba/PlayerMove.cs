@@ -28,17 +28,18 @@ public class PlayerMove : MonoBehaviour
     {
 		horizontal = Input.GetAxis("Horizontal");
 		vertical = Input.GetAxis("Vertical");
+	}
 
-		if(rm.sleeping == false)
-        {
+    private void FixedUpdate()
+    {
+		if (rm.sleeping == false)
+		{
 			if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
 			{
 				transform.Translate(new Vector2(horizontal * speed * Time.fixedDeltaTime, 0));
 			}
 		}
-		
-
 	}
 
-	
+
 }
