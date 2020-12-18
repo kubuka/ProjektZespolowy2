@@ -12,7 +12,7 @@ public class RadialMenu : MonoBehaviour
 	bool isActive = false;
 
 	public List<GameObject> options = new List<GameObject>();
-	public int activeOption = 0;
+	public int activeOption = 1;
 
 	Animator anim;
 
