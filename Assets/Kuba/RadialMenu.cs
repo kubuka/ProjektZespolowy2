@@ -6,12 +6,13 @@ public class RadialMenu : MonoBehaviour
 {
 	[SerializeField] GameObject theMenu;
 	public Vector2 moveInput;
-	int selectedOption;
+	 int selectedOption;
 	[SerializeField] GameObject selector;
 
 	bool isActive = false;
 
 	public List<GameObject> options = new List<GameObject>();
+	public int activeOption = 0;
 
 	Animator anim;
 
@@ -75,7 +76,8 @@ public class RadialMenu : MonoBehaviour
 		{
 			if (i == selectedOption)
 			{
-				options[i].SetActive(true);
+				activeOption = i;
+				options[i].SetActive(true);		
 			}
 			else
 			{
