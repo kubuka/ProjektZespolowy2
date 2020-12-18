@@ -9,19 +9,25 @@ public class RadialMenu : MonoBehaviour
 	int selectedOption;
 	[SerializeField] GameObject selector;
 
-	bool isActive = true;
+	bool isActive = false;
 
 	public List<GameObject> options = new List<GameObject>();
+
+	Animator anim;
+
+	public bool sleeping = false;
 
 	// Start is called before the first frame update
 	void Start()
     {
-        
+		anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+		Debug.Log(sleeping);
+
 		if (Input.GetKeyDown(KeyCode.Tab))
 		{
 			isActive = !isActive;
@@ -56,22 +62,30 @@ public class RadialMenu : MonoBehaviour
 
 			if (Input.GetKeyDown(KeyCode.Mouse0))
 			{
-				Debug.Log(selectedOption);
 				isActive = !isActive;
-				Debug.Log(options.Count);
-				for (int i = 0; i < options.Count; i++)
-				{
-					if(i == selectedOption)
-					{
-						options[i].SetActive(true);
-					}
-					else
-					{
-						options[i].SetActive(false);
-					}
-				}
+				anim.SetTrigger("Sleep");
 				theMenu.SetActive(isActive);
 			}
 		}
+    }
+
+	public void ChangeBackGround()
+    {
+		for (int i = 0; i < options.Count; i++)
+		{
+			if (i == selectedOption)
+			{
+				options[i].SetActive(true);
+			}
+			else
+			{
+				options[i].SetActive(false);
+			}
+		}
+	}
+
+	public void IsSleeping()
+    {
+		sleeping = !sleeping;
     }
 }
