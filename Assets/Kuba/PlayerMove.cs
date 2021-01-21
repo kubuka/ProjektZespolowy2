@@ -14,6 +14,9 @@ public class PlayerMove : MonoBehaviour
 	[SerializeField] float jumpForce = 1;
 
 	RadialMenu rm;
+	Animator anim;
+
+	bool facingRight = true;
 	
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,7 @@ public class PlayerMove : MonoBehaviour
 		rm = FindObjectOfType<RadialMenu>();
 		rb = GetComponent<Rigidbody2D>();
 		jump = new Vector2(0, 2f);
+		anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -28,6 +32,13 @@ public class PlayerMove : MonoBehaviour
     {
 		horizontal = Input.GetAxis("Horizontal");
 		vertical = Input.GetAxis("Vertical");
+		if(horizontal >0 && !facingRight)
+		{
+			Flip();
+		}else if (horizontal < 0 && facingRight)
+		{
+			Flip();
+		}
 	}
 
     private void FixedUpdate()
@@ -36,10 +47,22 @@ public class PlayerMove : MonoBehaviour
 		{
 			if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
 			{
+				anim.SetBool("Walk", true);
 				transform.Translate(new Vector2(horizontal * speed * Time.fixedDeltaTime, 0));
+			}
+			else
+			{
+				anim.SetBool("Walk", false);
 			}
 		}
 	}
 
+	private void Flip()
+	{
+		facingRight = !facingRight;
+		Vector3 theScale = transform.localScale;
+		theScale.x *= -1;
+		transform.localScale = theScale;
+	}
 
 }
