@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
+	public GameObject sound;
 
     void Start()
     {
@@ -17,16 +18,17 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue d)
     {
-        sentences.Clear();
-
+		sound.GetComponent<AudioSource>().enabled = true;
+		sound.GetComponent<AudioSource>().volume = 0.05f;
         nameText.text = d.name;
 
-        foreach (string sentence in d.sentences)
+		sentences.Clear();
+
+		foreach (string sentence in d.sentences)
         {
             sentences.Enqueue(sentence);
         }
-
-        DisplayNextSentence();
+		DisplayNextSentence();
     }
 
     public void DisplayNextSentence()
@@ -49,12 +51,31 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return null;
+            yield return new WaitForSeconds(0.05f);
         }
+		StartCoroutine(WaitForNextSentence());
     }
 
     public void EndDialogue()
     {
+		dialogueText.gameObject.SetActive(false);
+		StartCoroutine(MuteSound());
+	}
 
-    }
+	IEnumerator WaitForNextSentence()
+	{
+		yield return new WaitForSeconds(3);
+		DisplayNextSentence();
+	}
+
+	IEnumerator MuteSound()
+	{
+		while (sound.GetComponent<AudioSource>().volume > 0)
+		{
+			sound.GetComponent<AudioSource>().volume -= 0.01f;
+			yield return new WaitForSeconds(0.2f);
+			Debug.Log("aaaaa");
+		}
+		sound.GetComponent<AudioSource>().enabled = false;
+	}
 }

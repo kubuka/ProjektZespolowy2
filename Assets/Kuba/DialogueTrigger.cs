@@ -1,15 +1,50 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DialogueTrigger : MonoBehaviour
 {
 
     public Dialogue dialogue;
+	public TextMeshProUGUI dialoguePlace;
+	public TextMeshProUGUI namePlace;
+	public GameObject sound;
 
-    //tutaj trzeba zrobic warunek kiedy sie odpala dialog
-    public void TriggerDialogue()
+	bool touchingPlayer = false;
+
+	private void Update()
+	{
+		if(Input.GetKeyDown(KeyCode.Space) && touchingPlayer)
+		{
+			TriggerDialogue();
+		}
+		Debug.Log(touchingPlayer);
+	}
+
+	//tutaj trzeba zrobic warunek kiedy sie odpala dialog
+	public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+		FindObjectOfType<DialogueManager>().dialogueText = dialoguePlace;
+		FindObjectOfType<DialogueManager>().nameText = namePlace;
+		FindObjectOfType<DialogueManager>().sound = sound;
+		dialoguePlace.gameObject.SetActive(true);
+		FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if(collision.tag == "Player")
+		{
+			touchingPlayer = true;
+		}
+	}
+
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+		if(collision.tag == "Player")
+		{
+			touchingPlayer = false;
+		}
+	}
 }

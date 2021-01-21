@@ -15,7 +15,6 @@ public class Most : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(rm.activeOption);
         if (rm.activeOption == 1)
         {
             GetComponent<SpriteRenderer>().enabled = true;

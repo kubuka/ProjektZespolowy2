@@ -27,7 +27,6 @@ public class RadialMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		Debug.Log(sleeping);
 
 		if (Input.GetKeyDown(KeyCode.Tab))
 		{
