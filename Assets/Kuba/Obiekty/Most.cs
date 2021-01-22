@@ -22,13 +22,15 @@ public class Most : MonoBehaviour
 			anim.SetBool("IsMid", true);
            // GetComponent<SpriteRenderer>().enabled = true;
             GetComponent<EdgeCollider2D>().enabled = true;
+			transform.GetChild(1).gameObject.SetActive(false);
         }
         else
         {
 			anim.SetBool("IsMid", false);
 			// GetComponent<SpriteRenderer>().enabled = false;
 			GetComponent<EdgeCollider2D>().enabled = false;
-        }
+			transform.GetChild(1).gameObject.SetActive(true);
+		}
     }
 
 	public void DestroyMask()
