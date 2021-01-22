@@ -19,7 +19,6 @@ public class DialogueTrigger : MonoBehaviour
 		{
 			TriggerDialogue();
 		}
-		Debug.Log(touchingPlayer);
 	}
 
 	//tutaj trzeba zrobic warunek kiedy sie odpala dialog
