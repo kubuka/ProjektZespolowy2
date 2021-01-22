@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Teleport : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Teleport : MonoBehaviour
 	{
 		if(collision.gameObject.tag == "Player")
 		{
-			Debug.Log("tepuje");
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		}
 	}
 }

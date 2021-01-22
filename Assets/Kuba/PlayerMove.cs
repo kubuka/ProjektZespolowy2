@@ -48,10 +48,12 @@ public class PlayerMove : MonoBehaviour
 			if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
 			{
 				anim.SetBool("Walk", true);
+				GetComponent<AudioSource>().enabled = true;
 				transform.Translate(new Vector2(horizontal * speed * Time.fixedDeltaTime, 0));
 			}
 			else
 			{
+				GetComponent<AudioSource>().enabled = false;
 				anim.SetBool("Walk", false);
 			}
 		}
