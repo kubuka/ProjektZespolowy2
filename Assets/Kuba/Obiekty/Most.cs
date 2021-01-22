@@ -5,11 +5,13 @@ using UnityEngine;
 public class Most : MonoBehaviour
 {
     RadialMenu rm;
+	Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         rm = FindObjectOfType<RadialMenu>();
+		anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -17,13 +19,20 @@ public class Most : MonoBehaviour
     {
         if (rm.activeOption == 1)
         {
-            GetComponent<SpriteRenderer>().enabled = true;
+			anim.SetBool("IsMid", true);
+           // GetComponent<SpriteRenderer>().enabled = true;
             GetComponent<EdgeCollider2D>().enabled = true;
         }
         else
         {
-            GetComponent<SpriteRenderer>().enabled = false;
-            GetComponent<EdgeCollider2D>().enabled = false;
+			anim.SetBool("IsMid", false);
+			// GetComponent<SpriteRenderer>().enabled = false;
+			GetComponent<EdgeCollider2D>().enabled = false;
         }
     }
+
+	public void DestroyMask()
+	{
+		Destroy(transform.GetChild(0));
+	}
 }
