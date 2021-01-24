@@ -172,7 +172,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 22.7
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -198,7 +198,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610677488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 4.72, y: 5.97, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -610,3 +610,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec0eba5f59d51684d8585a7d01f6a649, type: 3}
+--- !u!1001 &9061392684660412331
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9061392684518968842, guid: 18e221fcc2662bb41bb1b2f33bd647be,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.180516
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061392684518968842, guid: 18e221fcc2662bb41bb1b2f33bd647be,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.4219155
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061392684518968842, guid: 18e221fcc2662bb41bb1b2f33bd647be,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.3029785
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061392684518968842, guid: 18e221fcc2662bb41bb1b2f33bd647be,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061392684518968842, guid: 18e221fcc2662bb41bb1b2f33bd647be,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061392684518968842, guid: 18e221fcc2662bb41bb1b2f33bd647be,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061392684518968842, guid: 18e221fcc2662bb41bb1b2f33bd647be,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061392684518968842, guid: 18e221fcc2662bb41bb1b2f33bd647be,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061392684518968842, guid: 18e221fcc2662bb41bb1b2f33bd647be,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061392684518968842, guid: 18e221fcc2662bb41bb1b2f33bd647be,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061392684518968842, guid: 18e221fcc2662bb41bb1b2f33bd647be,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061392684518968843, guid: 18e221fcc2662bb41bb1b2f33bd647be,
+        type: 3}
+      propertyPath: m_Name
+      value: SwarmOfBees
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 18e221fcc2662bb41bb1b2f33bd647be, type: 3}
