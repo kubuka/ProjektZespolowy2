@@ -76,7 +76,8 @@ public class RadialMenu : MonoBehaviour
 			if (i == selectedOption)
 			{
 				activeOption = i;
-				options[i].SetActive(true);		
+				options[i].SetActive(true);
+				Debug.Log(activeOption);
 			}
 			else
 			{
