@@ -6,6 +6,7 @@ public class Most : MonoBehaviour
 {
     RadialMenu rm;
 	Animator anim;
+	[SerializeField] AudioClip clip;
 
     // Start is called before the first frame update
     void Start()
@@ -33,8 +34,8 @@ public class Most : MonoBehaviour
 		}
     }
 
-	public void DestroyMask()
+	public void PlaySound()
 	{
-		Destroy(transform.GetChild(0));
+		GetComponent<AudioSource>().PlayOneShot(clip);
 	}
 }
