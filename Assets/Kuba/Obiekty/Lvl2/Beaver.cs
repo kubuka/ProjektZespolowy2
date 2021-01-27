@@ -28,7 +28,7 @@ public class Beaver : MonoBehaviour
             rm.activeOption == 4 ||
             rm.activeOption == 5)
             {
-                anim.SetBool("Sleep", true);
+                anim.SetTrigger("Sleep");
                 spi = true;
             }
         }
@@ -39,21 +39,13 @@ public class Beaver : MonoBehaviour
             rm.activeOption == 1 ||
             rm.activeOption == 2)
             {
-                Debug.Log("aaaaaaaaaa");
-                anim.SetBool("Sleep", false);
+                anim.SetTrigger("Happy");
                 spi = false;
                 wyspany = true;
+                transform.localScale = new Vector3(-1, 1, 1);
+                transform.position = new Vector3(22.97f, -8.92f, 0);
             }
         }
 
-        if (wyspany == false && !spi)
-        {
-            head.GetComponent<SpriteRenderer>().sprite = smutny;
-        }
-
-        if (wyspany)
-        {
-            head.GetComponent<SpriteRenderer>().sprite = szczesliwy;
-        }
     }
 }
