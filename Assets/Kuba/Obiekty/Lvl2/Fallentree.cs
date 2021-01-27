@@ -8,6 +8,8 @@ public class Fallentree : MonoBehaviour
     Beaver bv;
     Animator anim;
 
+    [SerializeField] GameObject colliders;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -25,6 +27,7 @@ public class Fallentree : MonoBehaviour
 
         if (fallen)
         {
+            colliders.SetActive(false);
             anim.SetTrigger("Fall");
             GetComponent<PolygonCollider2D>().enabled = true;
         }
