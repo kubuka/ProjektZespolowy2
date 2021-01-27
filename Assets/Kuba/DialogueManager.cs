@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
+    public GameObject dialogueCloud;
 	public GameObject sound;
 
     void Start()
@@ -58,7 +59,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-		dialogueText.gameObject.SetActive(false);
+		dialogueCloud.gameObject.SetActive(false);
 		StartCoroutine(MuteSound());
 	}
 

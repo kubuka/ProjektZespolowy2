@@ -7,6 +7,7 @@ public class DialogueTrigger : MonoBehaviour
 {
 
     public Dialogue dialogue;
+	public GameObject dialogueCloud;
 	public TextMeshProUGUI dialoguePlace;
 	public TextMeshProUGUI namePlace;
 	public GameObject sound;
@@ -27,7 +28,8 @@ public class DialogueTrigger : MonoBehaviour
 		FindObjectOfType<DialogueManager>().dialogueText = dialoguePlace;
 		FindObjectOfType<DialogueManager>().nameText = namePlace;
 		FindObjectOfType<DialogueManager>().sound = sound;
-		dialoguePlace.gameObject.SetActive(true);
+		FindObjectOfType<DialogueManager>().dialogueCloud = dialogueCloud;
+		dialogueCloud.gameObject.SetActive(true);
 		FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 
