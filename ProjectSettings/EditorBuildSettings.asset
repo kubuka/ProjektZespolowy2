@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Kuba/lvl2.unity
     guid: fbdcdde70b34c6d49bfa47a980b9863a
+  - enabled: 1
+    path: Assets/Kuba/lvl1invert.unity
+    guid: 20a5d06efaec726479fd0d7fe96b575e
   m_configObjects: {}
