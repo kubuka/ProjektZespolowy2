@@ -24,11 +24,18 @@ public class Item : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        isTouchingPlayer = true;
+        if(collision.tag == "Player")
+        {
+            isTouchingPlayer = true;
+        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isTouchingPlayer = false;
+        if (collision.tag == "Player")
+        {
+            isTouchingPlayer = false;
+        }
     }
 }

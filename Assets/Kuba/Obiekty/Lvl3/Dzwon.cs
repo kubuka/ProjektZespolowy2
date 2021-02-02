@@ -25,7 +25,7 @@ public class Dzwon : MonoBehaviour
         {
             Debug.Log("aaaaa");
             lw.PlayAnim();
-            //play anim
+            anim.SetTrigger("dingdong");
             goat.PlayAnim();
             dingdong = true;
         }

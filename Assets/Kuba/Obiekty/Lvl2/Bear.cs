@@ -23,7 +23,9 @@ public class Bear : MonoBehaviour
             if (bp.taken == 1)
             {           
                 anim.SetTrigger("Dobry");
-                transform.GetChild(0).gameObject.SetActive(false);          
+                transform.GetChild(0).gameObject.SetActive(false);
+                bp.taken = 0;
+                bp.slots[0].sprite = null;
             }
             else
             {
