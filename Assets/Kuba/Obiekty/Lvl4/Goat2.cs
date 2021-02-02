@@ -9,11 +9,13 @@ public class Goat2 : MonoBehaviour
     [SerializeField] Sprite koza;
     Backpack bp;
     RadialMenu rm;
+    Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         rm = FindObjectOfType<RadialMenu>();
         bp = FindObjectOfType<Backpack>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -24,9 +26,11 @@ public class Goat2 : MonoBehaviour
             rm.activeOption == 5)
         {
             sleep = true;
+            anim.SetBool("Sleep", true);
         }
         else
         {
+            anim.SetBool("Sleep", false);
             sleep = false;
         }
 
