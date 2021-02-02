@@ -11,40 +11,41 @@ public class Beaver : MonoBehaviour
     [SerializeField] Sprite smutny;
 
     RadialMenu rm;
+    Animator anim;
 
     void Start()
     {
         rm = FindObjectOfType<RadialMenu>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
-    { 
-        if(wyspany == false && rm.activeOption == 3 ||
+    {    
+        if(wyspany == false)
+        {
+            if(rm.activeOption == 3 ||
             rm.activeOption == 4 ||
-            rm.activeOption == 5 )
-        {  
-            spi = true;
+            rm.activeOption == 5)
+            {
+                anim.SetTrigger("Sleep");
+                spi = true;
+            }
         }
 
-        if(spi && rm.activeOption == 0 ||
+        if(spi == true)
+        {
+            if(rm.activeOption == 0 ||
             rm.activeOption == 1 ||
             rm.activeOption == 2)
-        {
-            spi = false;
-            wyspany = true;
+            {
+                anim.SetTrigger("Happy");
+                spi = false;
+                wyspany = true;
+                transform.localScale = new Vector3(-1, 1, 1);
+                transform.position = new Vector3(22.97f, -8.92f, 0);
+            }
         }
 
-        if (!wyspany && !spi)
-        {
-            head.GetComponent<SpriteRenderer>().sprite = smutny;
-        }
-
-        if (wyspany)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-            transform.position = new Vector3(23, -8.7f, 0);
-            head.GetComponent<SpriteRenderer>().sprite = szczesliwy;
-        }
     }
 }
