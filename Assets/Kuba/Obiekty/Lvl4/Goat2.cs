@@ -1,0 +1,65 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Goat2 : MonoBehaviour
+{
+    public bool sleep = false;
+    public bool touching = false;
+    [SerializeField] Sprite koza;
+    Backpack bp;
+    RadialMenu rm;
+    // Start is called before the first frame update
+    void Start()
+    {
+        rm = FindObjectOfType<RadialMenu>();
+        bp = FindObjectOfType<Backpack>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(rm.activeOption == 3 ||
+            rm.activeOption == 4 ||
+            rm.activeOption == 5)
+        {
+            sleep = true;
+        }
+        else
+        {
+            sleep = false;
+        }
+
+        if(sleep == true)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+        }
+        else
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+        }
+
+        if(touching && Input.GetKeyDown(KeyCode.Q))
+        {
+            bp.slots[bp.taken].sprite = koza;
+            bp.taken++;
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            touching = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            touching = false;
+        }
+    }
+}
