@@ -5,6 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public bool isTouchingPlayer = false;
+    public GameObject prefab;
     Backpack bp;
 
     private void Start()
@@ -16,19 +17,26 @@ public class Item : MonoBehaviour
     {
         if (isTouchingPlayer && Input.GetKeyDown(KeyCode.Q))
         {
-            bp.slots[bp.taken].sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
-            bp.taken++;
+            bp.rzeczy.Add(prefab);
             Destroy(gameObject);
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        isTouchingPlayer = true;
+        if(collision.tag == "Player")
+        {
+            isTouchingPlayer = true;
+        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isTouchingPlayer = false;
+        if (collision.tag == "Player")
+        {
+            isTouchingPlayer = false;
+        }
     }
 }

@@ -8,7 +8,7 @@ public class Bear : MonoBehaviour
     public bool inRange = false;
     Backpack bp;
     Animator anim;
-
+    [SerializeField] GameObject item;
     void Start()
     {
         bp = FindObjectOfType<Backpack>();
@@ -20,10 +20,14 @@ public class Bear : MonoBehaviour
     {
         if(inRange && Input.GetKeyDown(KeyCode.Space))
         {
-            if (bp.taken == 1)
+            if (bp.rzeczy.Count == 1)
             {           
                 anim.SetTrigger("Dobry");
-                transform.GetChild(0).gameObject.SetActive(false);          
+                transform.GetChild(0).gameObject.SetActive(false);
+                transform.GetChild(1).gameObject.SetActive(true);              
+                bp.rzeczy.RemoveAt(0);
+                bp.taken = 0;
+                bp.rzeczy.Add(item);
             }
             else
             {

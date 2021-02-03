@@ -9,6 +9,8 @@ public class Fallentree : MonoBehaviour
     Animator anim;
 
     [SerializeField] GameObject colliders;
+    [SerializeField] AudioClip clip;
+    bool playClip;
 
     void Start()
     {
@@ -27,9 +29,15 @@ public class Fallentree : MonoBehaviour
 
         if (fallen)
         {
+            playClip = true;
             colliders.SetActive(false);
             anim.SetTrigger("Fall");
             GetComponent<PolygonCollider2D>().enabled = true;
         }
+    }
+
+    public void PlayClip()
+    {
+        GetComponent<AudioSource>().PlayOneShot(clip);
     }
 }

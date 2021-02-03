@@ -5,6 +5,7 @@ using UnityEngine;
 public class Goat : MonoBehaviour
 {
     Animator anim;
+    [SerializeField] AudioClip clip;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,7 @@ public class Goat : MonoBehaviour
 
    public void PlayAnim()
     {
+        GetComponent<AudioSource>().PlayOneShot(clip);
         anim.SetTrigger("Run");
     }
 }

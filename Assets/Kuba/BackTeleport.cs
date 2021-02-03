@@ -13,7 +13,7 @@ public class BackTeleport : MonoBehaviour
 
     private void Start()
     {
-        if (bp.taken == 1)
+        if (bp.rzeczy.Count > 0)
         {
             Destroy(gameObject);
         }

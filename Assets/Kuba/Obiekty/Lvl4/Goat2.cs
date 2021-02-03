@@ -6,7 +6,7 @@ public class Goat2 : MonoBehaviour
 {
     public bool sleep = false;
     public bool touching = false;
-    [SerializeField] Sprite koza;
+    [SerializeField] GameObject koza;
     Backpack bp;
     RadialMenu rm;
     Animator anim;
@@ -45,8 +45,7 @@ public class Goat2 : MonoBehaviour
 
         if(touching && Input.GetKeyDown(KeyCode.Q))
         {
-            bp.slots[bp.taken].sprite = koza;
-            bp.taken++;
+            bp.rzeczy.Add(koza);
             Destroy(gameObject);
         }
     }
