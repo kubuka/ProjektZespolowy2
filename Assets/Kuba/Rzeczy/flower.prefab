@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTouchingPlayer: 0
+  prefab: {fileID: 5537744077383243190}
 --- !u!61 &5537744077383243188
 BoxCollider2D:
   m_ObjectHideFlags: 0

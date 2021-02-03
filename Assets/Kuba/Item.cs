@@ -5,6 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public bool isTouchingPlayer = false;
+    public GameObject prefab;
     Backpack bp;
 
     private void Start()
@@ -16,9 +17,8 @@ public class Item : MonoBehaviour
     {
         if (isTouchingPlayer && Input.GetKeyDown(KeyCode.Q))
         {
-            bp.slots[bp.taken].sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
-            bp.taken++;
-            Destroy(gameObject);
+            bp.rzeczy.Add(prefab);
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 

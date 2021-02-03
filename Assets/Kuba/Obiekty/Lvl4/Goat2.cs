@@ -45,8 +45,7 @@ public class Goat2 : MonoBehaviour
 
         if(touching && Input.GetKeyDown(KeyCode.Q))
         {
-            bp.slots[bp.taken].sprite = koza.GetComponent<SpriteRenderer>().sprite;
-            bp.taken++;
+            bp.rzeczy.Add(gameObject);
             Destroy(gameObject);
         }
     }

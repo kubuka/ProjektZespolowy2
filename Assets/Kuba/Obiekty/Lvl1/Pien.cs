@@ -7,7 +7,7 @@ public class Pien : MonoBehaviour
 	RadialMenu rm;
 	Backpack bp;
 	bool zebrany = false;
-	[SerializeField] Sprite miod;
+	[SerializeField] GameObject miod;
 	bool touching = false;
 
 	void Start()
@@ -25,8 +25,7 @@ public class Pien : MonoBehaviour
 			if (touching &&Input.GetKeyDown(KeyCode.Q))
 			{
 				zebrany = true;
-				bp.slots[bp.taken].sprite = miod;
-				bp.taken++;
+				bp.rzeczy.Add(miod);
 				transform.GetChild(0).gameObject.SetActive(false);
 				transform.GetChild(1).gameObject.SetActive(false);
 			}

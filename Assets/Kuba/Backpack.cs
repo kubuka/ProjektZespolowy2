@@ -7,8 +7,10 @@ public class Backpack : MonoBehaviour
 {
     bool isOpened = false;
     [SerializeField] GameObject backpack;
+    public List<GameObject> rzeczy = new List<GameObject>();
     public List<Image> slots = new List<Image>();
     public int taken = 0;
+    public int takenRz = 0;
     public GameObject combineButton;
     public Sprite finalSprite;
 
@@ -37,6 +39,19 @@ public class Backpack : MonoBehaviour
         if (isOpened)
         {
             backpack.SetActive(true);
+            for (int i = 0; i < rzeczy.Count; i++)
+            {
+                slots[i].sprite = rzeczy[i].GetComponent<SpriteRenderer>().sprite;
+                taken++;
+            }
+
+            if(taken == 0)
+            {
+                foreach (var item in slots)
+                {
+                    item.sprite = null;
+                }
+            }
 
             if(taken == 5)
             {
@@ -45,6 +60,11 @@ public class Backpack : MonoBehaviour
         }
         else
         {
+            for (int i = 0; i < rzeczy.Count; i++)
+            {
+                slots[i].sprite = null;
+            }
+            taken = 0;
             backpack.SetActive(false);
         }
     }
