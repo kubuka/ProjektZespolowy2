@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Janek/Menu.unity
+    guid: fa620bb8d6dfff14494a6d8b43a733fa
+  - enabled: 1
     path: Assets/Kuba/lvl0.unity
     guid: 44324abffbc16114782fdfddeec2e33a
   - enabled: 1
