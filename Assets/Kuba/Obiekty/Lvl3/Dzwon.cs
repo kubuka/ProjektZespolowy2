@@ -10,6 +10,7 @@ public class Dzwon : MonoBehaviour
     Goat goat;
     bool dingdong = false;
     bool touching = false;
+    [SerializeField] AudioClip clip;
 
     void Start()
     {
@@ -28,6 +29,7 @@ public class Dzwon : MonoBehaviour
             anim.SetTrigger("dingdong");
             goat.PlayAnim();
             dingdong = true;
+            GetComponent<AudioSource>().PlayOneShot(clip);
         }
     }
 

@@ -12,6 +12,8 @@ public class Lawina : MonoBehaviour
     public Sprite mokra;
     public Sprite mrozna;
 
+    [SerializeField] AudioClip clip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,7 @@ public class Lawina : MonoBehaviour
 
     public void PlayAnim()
     {
+        GetComponent<AudioSource>().PlayOneShot(clip);
         anim.SetTrigger("Lawina");
         GetComponent<BoxCollider2D>().enabled = false;
     }

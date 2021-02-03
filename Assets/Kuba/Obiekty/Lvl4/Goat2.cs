@@ -45,7 +45,7 @@ public class Goat2 : MonoBehaviour
 
         if(touching && Input.GetKeyDown(KeyCode.Q))
         {
-            bp.rzeczy.Add(gameObject);
+            bp.rzeczy.Add(koza);
             Destroy(gameObject);
         }
     }

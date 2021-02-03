@@ -18,6 +18,7 @@ public class Item : MonoBehaviour
         if (isTouchingPlayer && Input.GetKeyDown(KeyCode.Q))
         {
             bp.rzeczy.Add(prefab);
+            Destroy(gameObject);
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
     }

@@ -10,9 +10,8 @@ public class Backpack : MonoBehaviour
     public List<GameObject> rzeczy = new List<GameObject>();
     public List<Image> slots = new List<Image>();
     public int taken = 0;
-    public int takenRz = 0;
     public GameObject combineButton;
-    public Sprite finalSprite;
+    public GameObject finalSprite;
 
     RadialMenu rm;
 
@@ -53,7 +52,7 @@ public class Backpack : MonoBehaviour
                 }
             }
 
-            if(taken == 5)
+            if(rzeczy.Count == 5)
             {
                 combineButton.SetActive(true);
             }
@@ -71,11 +70,11 @@ public class Backpack : MonoBehaviour
 
     public void CombineItems()
     {
-        taken = 0;
+        rzeczy.Clear();
         foreach (var item in slots)
         {
             item.sprite = null;
         }
-        slots[taken].sprite = finalSprite;
+        rzeczy.Add(finalSprite);
     }
 }
