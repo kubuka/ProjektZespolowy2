@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Janek/Menu.unity
     guid: fa620bb8d6dfff14494a6d8b43a733fa
   - enabled: 1
+    path: Assets/Kuba/Intro.unity
+    guid: a8cb8ef722569eb4d9a593992f29b5d0
+  - enabled: 1
     path: Assets/Kuba/lvl0.unity
     guid: 44324abffbc16114782fdfddeec2e33a
   - enabled: 1
@@ -29,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Kuba/lvl5.unity
     guid: f585d5285a59453478c68baf780a4a7c
+  - enabled: 1
+    path: Assets/Kuba/Outro.unity
+    guid: a9ae91a6469051b419fc2096e8f7746c
   m_configObjects: {}

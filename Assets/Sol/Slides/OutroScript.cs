@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TpToLvl3 : MonoBehaviour
+public class OutroScript : MonoBehaviour
 {
-
-    private void OnCollisionEnter2D(Collision2D collision)
+   public void NextScene()
     {
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(0);
     }
 }
